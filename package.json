@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "newman": "^5.1.1",
-    "newman-reporter-html": "^1.0.5"
+    "newman-reporter-html": "^1.0.5",
+    "newman-reporter-htmlextra": "^1.17.2"
   }
 }
