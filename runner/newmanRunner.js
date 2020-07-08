@@ -3,10 +3,10 @@ var newman = require('newman');
 
 // call newman.run to pass `options` object and wait for callback
 newman.run({
-    collection: require('./PostmanCollection/Sample.postman_collection.json'),
-    environment: require('./PostmanEnvironment/Test.postman_environment.json'),
-    reporters: ['html','cli'],
-    reporter : { html : { export : './report/htmlReport.html'}},
+    collection: require('../collections/Pet.postman_collection.json'),
+    environment: require('../enviornments/UAT.postman_environment.json'),
+    reporters: ['htmlextra','cli', 'html'],
+    reporter : { htmlextra: { export : '../reports/htmlReport.html'}},
     insecure: true, // allow self-signed certs, required in postman too
     timeout: 180000  // set time out
 }).on('start', function (err, args) { // on start of run, log to console

@@ -6,6 +6,10 @@
   "scripts": {
     "test": "node runner/newmanRunner"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AlokSDET/NewmanWithNode.git"
+  },
   "author": "HybridQA",
   "license": "ISC",
   "dependencies": {
