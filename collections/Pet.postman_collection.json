@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "b924f66b-22f7-4e05-b131-e391abef74c5",
+		"name": "Pet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "orderforpet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d84812c4-a699-469c-9e29-8a13797e4f27",
+								"exec": [
+									"pm.test(\"vERIFY STATUS CODE\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsondata = pm.response.json();\r",
+									"var id = jsondata.id;\r",
+									"pm.environment.set(\"id\", id);\r",
+									"\r",
+									"console.log(pm.environment.get(\"id\"));\r",
+									"\r",
+									"pm.test(\"verify quantity\", function() {\r",
+									"var jsondata = pm.response.json();\r",
+									"var quantity = jsondata.quantity;\r",
+									"pm.expect(quantity).to.be.eql(10);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"petId\": 5,\n    \"quantity\": 10,\n    \"shipDate\": \"2015-07-20T15:49:04-07:00\",\n    \"status\": \"placed\",\n    \"complete\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{URL}}/v2/store/order",
+							"protocol": "https",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v2",
+								"store",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "inventory",
+			"item": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
